@@ -37,13 +37,16 @@
         </div>
 
         <div class="col-md-4">
-          <form>
+          <form action="{{ route('categories.store') }}" method="POST">
+            @csrf
             <div class="form-group">
               <label for="category_name">Add Category</label>
-              <input type="text" class="form-control" name="categor_name">
+              <input type="text" class="form-control" name="category_name">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Add</button>
           </form>
+
+
         </div>
       </div>
 

@@ -11,4 +11,11 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('admin.category.category',compact('categories'));
     }
+
+    public function store(Request $request)
+    {
+        Category::addCategory($request->category_name);
+
+        return redirect()->route('AllCat')->with('success', 'Category added successfully');
+    }
 }
