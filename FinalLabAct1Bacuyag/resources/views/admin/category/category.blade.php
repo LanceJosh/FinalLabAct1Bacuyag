@@ -16,6 +16,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Category Name</th>
                 <th scope="col">User ID</th>
+                <th scope="col">Image</th>
                 <th scope="col">Created At</th>
                 <th scope="col">Actions</th>
               </tr>
@@ -30,6 +31,9 @@
                 <th scope="row">{{$i++}}</th>
                 <td>{{$category->category_name}}</td>
                 <td>{{$category->user_id}}</td>
+                <td>
+                  <img src="{{ asset('images/'.$category->image) }}" alt="{{ $category->category_name }}">
+                </td>
                 <td>{{$category->created_at}}</td>
                 <td>
                   <a href="{{ route('category.edit', $category->id) }}" class="btn btn-info">Edit</a>
@@ -43,6 +47,7 @@
               @endforeach
             </tbody>
           </table>
+
         </div>
 
         <div class="col-md-4">
