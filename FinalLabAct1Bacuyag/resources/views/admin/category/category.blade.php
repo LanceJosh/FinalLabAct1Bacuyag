@@ -17,6 +17,7 @@
                 <th scope="col">Category Name</th>
                 <th scope="col">User ID</th>
                 <th scope="col">Created At</th>
+                <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -30,6 +31,14 @@
                 <td>{{$category->category_name}}</td>
                 <td>{{$category->user_id}}</td>
                 <td>{{$category->created_at}}</td>
+                <td>
+                  <a href="{{ route('category.edit', $category->id) }}" class="btn btn-info">Edit</a>
+                  <form action="{{ route('category.delete', $category->id) }}" method="POST" style="display: inline-block;">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </td>
               </tr>
               @endforeach
             </tbody>
@@ -45,10 +54,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Add</button>
           </form>
-
-
         </div>
       </div>
-
     </div>
 </x-app-layout>

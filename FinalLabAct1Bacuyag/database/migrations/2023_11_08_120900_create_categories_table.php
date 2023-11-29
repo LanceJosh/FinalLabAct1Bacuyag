@@ -12,15 +12,18 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->string('category_name');
-            $table->integer('user_id');
-            $table->timestamps();
-            $table->SoftDeletes();
-        });
-    }
+{
+  Schema::create('categories', function (Blueprint $table) {
+      $table->id();
+      $table->string('category_name');
+      $table->string('image')->nullable();
+      $table->integer('user_id');
+      $table->timestamps();
+      $table->SoftDeletes();
+  });
+}
+
+
 
     /**
      * Reverse the migrations.
